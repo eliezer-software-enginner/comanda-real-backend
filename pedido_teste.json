@@ -1,0 +1,24 @@
+{
+  "nomeCliente": "Cliente Teste",
+  "lojistaId": "loja_teste_123",
+  "numero": "5532998008182",
+  "produtos": [
+    {
+      "nome": "Hambúrguer Clássico",
+      "quantidade": 2,
+      "preco": 25.90
+    },
+    {
+      "nome": "Batata Frita",
+      "quantidade": 1,
+      "preco": 12.50
+    },
+    {
+      "nome": "Refrigerante Coca-Cola",
+      "quantidade": 2,
+      "preco": 8.00
+    }
+  ],
+  "total": 80.30,
+  "observacoes": "Sem cebola no hambúrguer, por favor!"
+}
