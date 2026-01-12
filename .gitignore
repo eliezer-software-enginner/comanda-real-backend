@@ -41,6 +41,11 @@ out/
 .env.local
 .env.*.local
 
+### Test Data ###
+src/main/resources/pedido-exemplo.json
+**/resources/*-exemplo.json
+**/resources/test-*.json
+
 ### Logs ###
 *.log
 logs/
