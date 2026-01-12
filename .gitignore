@@ -43,8 +43,12 @@ out/
 
 ### Test Data ###
 src/main/resources/pedido-exemplo.json
+src/main/resources/pedido_com_numero.json
 **/resources/*-exemplo.json
 **/resources/test-*.json
+**/resources/*pedido*.json
+*-pedido.json
+pedido_com_numero.json
 
 ### Logs ###
 *.log
