@@ -4,11 +4,13 @@ import comandareal.app.dto.PedidoSimuladoDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:5173/")
 @Service
 public class WhatsAppService {
 
@@ -69,7 +71,7 @@ public class WhatsAppService {
         } catch (Exception e) {
             System.err.println("❌ Erro ao chamar Evolution API: " + e.getMessage());
             System.err.println("⚠️  Verifique se a Evolution API está rodando em: " + evolutionApiUrl);
-            throw e;
+            throw new RuntimeException("No momento não é possivel enviar notificações por Whatsapp tente em alguns instantes.");
         }
     }
 

@@ -2,12 +2,17 @@ package comandareal.app.controller;
 
 import comandareal.app.dto.PedidoSimuladoDto;
 import comandareal.app.service.WhatsAppService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/whatsapp")
+@CrossOrigin(origins = "http://localhost:5173")
 public class WhatsAppController {
+
+    @Value("${whatsapp.padrao}")
+    private String whatsappPadrao;
 
     private final WhatsAppService whatsAppService;
 
@@ -18,7 +23,7 @@ public class WhatsAppController {
     @PostMapping("/enviar-pedido")
     public ResponseEntity<String> enviarPedido(@RequestBody PedidoSimuladoDto pedido) {
         try {
-            String numeroDestinatario = pedido.numero();
+            String numeroDestinatario = pedido.telefoneCliente();
             
             if (numeroDestinatario == null || numeroDestinatario.isEmpty()) {
                 return ResponseEntity.badRequest().body("Número de destinatário é obrigatório");
@@ -40,7 +45,7 @@ public class WhatsAppController {
     public ResponseEntity<String> simularRecebimentoPedido(@RequestBody PedidoSimuladoDto pedido) {
         try {
             // Para teste, usa o número do pedido ou um padrão
-            String numeroDestinatario = pedido.numero() != null ? pedido.numero() : "32998008182";
+            String numeroDestinatario = pedido.telefoneLojista()!= null ? pedido.telefoneLojista() : whatsappPadrao;
             
             // Remove o 55 se tiver
             if (numeroDestinatario.startsWith("55")) {
